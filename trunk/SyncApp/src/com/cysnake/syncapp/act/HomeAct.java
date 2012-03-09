@@ -10,6 +10,7 @@ public class HomeAct extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_home);
 		System.out.println("aaaa");
+		System.err.println("gong gong hasa");
 		
 	}
 }
