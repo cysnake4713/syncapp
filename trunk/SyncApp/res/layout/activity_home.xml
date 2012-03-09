@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Background" >
+
+    <LinearLayout
+        style="@style/Background.Oneline.TopBar"
+        android:layout_weight="9" >
+
+        <Button
+            style="@style/Button.MarginLeft"
+            android:background="@drawable/selector_topbar_icon_contact" />
+
+        <Button
+            style="@style/Button.MarginLeft"
+            android:background="@drawable/selector_topbar_icon_refresh" />
+
+        <EditText style="@style/EditText.Marginleft" />
+
+        <Button
+            style="@style/Button.MarginLeft"
+            android:background="@drawable/selector_topbar_icon_search" />
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/Background.Body"
+        android:layout_weight="1" >
+
+        <LinearLayout
+            style="@style/Background.Oneline"
+            android:layout_weight="7" >
+
+            <TextView
+                style="@style/TextView.Shadow"
+                android:layout_weight="1"
+                android:text="@string/homepage_body_textview_contact_yes" />
+
+            <Spinner
+                style="@style/Spinner.Short"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1" >
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

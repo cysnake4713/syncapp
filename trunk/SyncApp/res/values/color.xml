@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- global-->
+	<color name="gray_backgroud">#e6e6e6</color>
+    
+	    
+	<!-- local -->    
+	<color name="gray_homepage_textview_shadow">#818181</color>
+	    
+</resources>
