@@ -37,6 +37,7 @@ public class PersonDao extends CommonDao {
 				KEY_CONTACT_ID + " = " + person.getContactId() + "", null,
 				null, null, null, null);
 		if (mCursor.getCount() > 0) {
+			mCursor.moveToNext();
 			int id = mCursor.getInt(mCursor.getColumnIndex(KEY_ID));
 			person.setId(id);
 			mCursor.close();

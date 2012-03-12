@@ -8,6 +8,7 @@ import com.cysnake.syncapp.po.ContactPO;
 import com.cysnake.syncapp.po.PersonPO;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 
 public class StartAct extends Activity {
@@ -18,6 +19,7 @@ public class StartAct extends Activity {
 		setContentView(R.layout.activity_start);
 		importPersonFromContact(this);
 		modify();
+		startActivity(new Intent(this, HomeAct.class));
 	}
 
 	private void modify() {
@@ -34,7 +36,7 @@ public class StartAct extends Activity {
 			PersonPO person = new PersonPO(contact);
 			if (!personDao.isExist(person)) {
 				personDao.insert(person);
-			}else{
+			} else {
 				personDao.update(person);
 			}
 		}
