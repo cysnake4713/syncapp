@@ -17,7 +17,7 @@ public class ContactAct extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_home);
+		setContentView(R.layout.activity_contact);
 		GridView grid = (GridView) findViewById(R.id.homepage_body_grid);
 		grid.setAdapter(new SimpleAdapter(this, getData(),
 				R.xml.person_grid_cell, new String[] { "id" },
