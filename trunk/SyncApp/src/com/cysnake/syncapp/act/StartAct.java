@@ -17,9 +17,9 @@ public class StartAct extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_start);
-		importPersonFromContact(this);
+//		importPersonFromContact(this);
 		modify();
-		startActivity(new Intent(this, HomeAct.class));
+		startActivity(new Intent(this, ContactAct.class));
 	}
 
 	private void modify() {

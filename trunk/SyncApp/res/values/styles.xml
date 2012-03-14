@@ -20,6 +20,10 @@
     <style name="Background.Body">
         <item name="android:background">@color/gray_backgroud</item>
     </style>
+
+    <style name="Background.MidBar">
+        <item name="android:background">@drawable/color_homepage_midbar_green</item>
+    </style>
     <!-- button -->
     <style name="Button">
         <item name="android:layout_width">wrap_content</item>
@@ -27,7 +31,7 @@
     </style>
 
     <style name="Button.MarginLeft">
-        <item name="android:layout_marginLeft">5dp</item>
+        <item name="android:layout_marginLeft">150dp</item>
     </style>
 
     <!-- textview -->
@@ -36,18 +40,15 @@
         <item name="android:layout_height">wrap_content</item>
     </style>
 
-    <style name="TextView.Shadow">
-        <item name="android:textColor">@android:color/black</item>
-        <item name="android:textSize">20sp</item>
-        <item name="android:shadowColor">@color/gray_homepage_textview_shadow</item>
-        <item name="android:shadowDx">10</item>
-        <item name="android:shadowDy">10</item>
-        <item name="android:shadowRadius">3</item>
-        <item name="android:layout_height">match_parent</item>
-        <item name="android:gravity">center</item>
-        
+    <style name="TextView.Title">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">20dp</item>
     </style>
 
+    <style name="TextView.MidTitle">
+        <item name="android:textSize">10dp</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
     <!-- editText -->
     <style name="EditText">
         <item name="android:layout_width">wrap_content</item>
@@ -65,7 +66,21 @@
         <item name="android:layout_height">wrap_content</item>
     </style>
 
-    <style name="Spinner.Short">
+    <style name="Spinner.Short"></style>
+
+    <!-- GridView -->
+    <style name="GridView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="GridView.personDis">
+        <item name="android:background">@color/gray_grid_line</item>
+        <item name="android:numColumns">2</item>
+        <item name="android:verticalSpacing">1dp</item>
+        <item name="android:horizontalSpacing">1dp</item>
+        <item name="android:stretchMode">columnWidth</item>
+        <item name="android:gravity">fill_vertical</item>
     </style>
 
 </resources>

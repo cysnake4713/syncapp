@@ -4,6 +4,8 @@
    	<string name="app_cancel">取消</string>
     <string name="app_name">人人同步</string>
 	<string name="homepage_body_textview_contact_yes">已连接联系人</string>   
-    
+    <!-- env -->
+    <string name="homepage_title_textview">联系人</string>
+    <string name="homepage_midbar_textview">已连接联系人</string>
         
 </resources>
