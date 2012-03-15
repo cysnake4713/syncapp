@@ -1,14 +1,16 @@
 package com.cysnake.syncapp.po;
 
-import android.graphics.Bitmap;
-
 public class PersonPO {
-	
-	
+
+	private int id;
+	private int contactId;
+	private String name;
+	private byte[] lPhoto;
+	private byte[] HPhoto;
+
 	public PersonPO(ContactPO contact) {
-		contactId=contact.getId();
-		name=contact.getName();
-		lPhoto=contact.getPhoto();
+		contactId = contact.getId();
+		name = contact.getName();
 	}
 
 	public PersonPO() {
@@ -39,26 +41,20 @@ public class PersonPO {
 		this.name = name;
 	}
 
-	public Bitmap getlPhoto() {
+	public byte[] getlPhoto() {
 		return lPhoto;
 	}
 
-	public void setlPhoto(Bitmap lPhoto) {
+	public void setlPhoto(byte[] lPhoto) {
 		this.lPhoto = lPhoto;
 	}
 
-	public Bitmap getHPhoto() {
+	public byte[] getHPhoto() {
 		return HPhoto;
 	}
 
-	public void setHPhoto(Bitmap hPhoto) {
+	public void setHPhoto(byte[] hPhoto) {
 		HPhoto = hPhoto;
 	}
-
-	private int id;
-	private int contactId;
-	private String name;
-	private Bitmap lPhoto;
-	private Bitmap HPhoto;
 
 }
