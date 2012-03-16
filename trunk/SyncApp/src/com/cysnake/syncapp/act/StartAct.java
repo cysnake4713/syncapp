@@ -6,6 +6,7 @@ import com.cysnake.syncapp.dao.ContactDao;
 import com.cysnake.syncapp.dao.PersonDao;
 import com.cysnake.syncapp.po.ContactPO;
 import com.cysnake.syncapp.po.PersonPO;
+import com.cysnake.syncapp.tools.CommonUtils;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -17,7 +18,7 @@ public class StartAct extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_start);
-//		importPersonFromContact(this);
+		importPersonFromContact(this);
 		modify();
 		startActivity(new Intent(this, ContactAct.class));
 	}
@@ -34,6 +35,8 @@ public class StartAct extends Activity {
 		personDao.beginTransaction();
 		for (ContactPO contact : allContacts) {
 			PersonPO person = new PersonPO(contact);
+			byte[] photo = contactDao.getPhoto(contact);
+			person.setlPhoto(photo);
 			if (!personDao.isExist(person)) {
 				personDao.insert(person);
 			} else {

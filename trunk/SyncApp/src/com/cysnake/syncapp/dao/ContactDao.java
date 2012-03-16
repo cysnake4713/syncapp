@@ -187,6 +187,27 @@ public class ContactDao {
 
 	}
 
+	public byte[] getPhoto(ContactPO contactPO) {
+		Cursor cursor = resolver
+				.query(ContactsContract.Data.CONTENT_URI,
+						new String[] { ContactsContract.CommonDataKinds.Photo.PHOTO },
+						ContactsContract.Data.CONTACT_ID + "=?" + " AND "
+								+ ContactsContract.Data.MIMETYPE + "=?",
+						new String[] {
+								contactPO.getId() + "",
+								ContactsContract.CommonDataKinds.Photo.CONTENT_ITEM_TYPE },
+						null);
+		if (cursor.moveToFirst()) {
+			byte[] photo = cursor
+					.getBlob(cursor
+							.getColumnIndex(ContactsContract.CommonDataKinds.Photo.PHOTO));
+			cursor.close();
+			return photo;
+		}
+		cursor.close();
+		return null;
+	}
+
 	private boolean isPhotoExist(ContactPO contactPO) {
 		boolean flag = false;
 		Cursor cursor = resolver

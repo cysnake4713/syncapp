@@ -3,6 +3,7 @@ package com.cysnake.syncapp.tools;
 import java.io.ByteArrayOutputStream;
 
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 
 public class CommonUtils {
 	public static byte[] getBitePhoto(Bitmap photoMap,
@@ -14,5 +15,14 @@ public class CommonUtils {
 
 		}
 		return null;
+	}
+
+	public static Bitmap getBitmap(byte[] b) {
+		if (b.length > 0) {
+			return BitmapFactory.decodeByteArray(b, 0, b.length);
+		} else {
+			return null;
+		}
+
 	}
 }
