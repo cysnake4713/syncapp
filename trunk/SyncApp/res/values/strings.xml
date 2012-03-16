@@ -7,5 +7,7 @@
     <!-- env -->
     <string name="homepage_title_textview">联系人</string>
     <string name="homepage_midbar_textview">已连接联系人</string>
-        
+    
+    <string name="account_title_textview">帐户</string>    
+    <string name="account_midbar_textview">当前帐户</string>
 </resources>
