@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     style="@style/Background"
     android:orientation="vertical" >
-	<LinearLayout
+
+    <LinearLayout
         style="@style/Background"
         android:layout_weight="5" >
 
@@ -29,5 +30,16 @@
         style="@style/Background.Body"
         android:layout_weight="1" >
 
+        <ListView style="@style/ListView" android:layout_weight="1">
+        </ListView>
+
+        <LinearLayout style="@style/Background.Body" android:layout_weight="7" android:gravity="center">
+
+            <Button
+                style="@style/Button.Black"
+                android:text="@string/account_bottom_button_addnewaccount" 
+                android:id="@+id/account_bottom_button_newAccount"/>
+        </LinearLayout>
     </LinearLayout>
+
 </LinearLayout>

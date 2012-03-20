@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Dailog" >
+
+    <Button
+        android:id="@+id/new_account_renren_button"
+        style="@style/Button"
+        android:background="@drawable/selector_new_account_button_renren" >
+    </Button>
+
+</LinearLayout>

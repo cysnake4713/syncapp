@@ -19,7 +19,6 @@ public class PersonDao extends CommonDao {
 
 	public PersonDao(Context ctx) {
 		super(ctx);
-		// TODO Auto-generated constructor stub
 	}
 
 	public Cursor findAll() {

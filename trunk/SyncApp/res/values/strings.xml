@@ -1,13 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-   	<string name="app_comfirm">确定</string>
-   	<string name="app_cancel">取消</string>
+
+    <string name="app_comfirm">确定</string>
+    <string name="app_cancel">取消</string>
     <string name="app_name">人人同步</string>
-	<string name="homepage_body_textview_contact_yes">已连接联系人</string>   
+    <string name="homepage_body_textview_contact_yes">已连接联系人</string>
+    <string name="auth_fail">验证失败</string>
+    <string name="auth_success">验证成功</string>
     <!-- env -->
     <string name="homepage_title_textview">联系人</string>
     <string name="homepage_midbar_textview">已连接联系人</string>
-    
-    <string name="account_title_textview">帐户</string>    
+    <!-- account -->
+    <string name="account_title_textview">帐户</string>
     <string name="account_midbar_textview">当前帐户</string>
+    <string name="account_bottom_button_addnewaccount">添加帐户</string>
+    <string name="new_account_title">选择登陆方式</string>
+    
+    <!-- renren -->
+	<string name="renren_api_key">1eb5244d49774dc8a669141de132b4d0</string>
+	<string name="renren_secret_key">df2672a2955d47c1b7a894ff26259f04</string>
+	<string name="renren_app_id">170306</string>
 </resources>
