@@ -24,6 +24,11 @@
     <style name="Background.MidBar">
         <item name="android:background">@drawable/color_homepage_midbar_green</item>
     </style>
+    <!-- Dailog -->
+    <style name="Dailog">
+        <item name="android:layout_height">250dp</item>
+        <item name="android:layout_width">150dp</item>
+    </style>
     <!-- button -->
     <style name="Button">
         <item name="android:layout_width">wrap_content</item>
@@ -32,6 +37,10 @@
 
     <style name="Button.MarginLeft">
         <item name="android:layout_marginLeft">150dp</item>
+    </style>
+
+    <style name="Button.Black">
+        <item name="android:textColor">@android:color/black</item>
     </style>
 
     <!-- textview -->
@@ -86,6 +95,20 @@
         <item name="android:horizontalSpacing">1dp</item>
         <item name="android:stretchMode">columnWidth</item>
         <item name="android:gravity">fill_vertical</item>
+    </style>
+
+    <style name="GridView.accountDis">
+        <item name="android:background">@color/gray_grid_line</item>
+        <item name="android:numColumns">1</item>
+        <item name="android:verticalSpacing">1dp</item>
+        <item name="android:horizontalSpacing">1dp</item>
+        <item name="android:stretchMode">columnWidth</item>
+        <item name="android:gravity">fill_vertical</item>
+    </style>
+    <!-- ListView -->
+    <style name="ListView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
     </style>
 
     <!-- ImageView -->
