@@ -32,7 +32,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".NewAccountAct"
+            android:name=".NewAccountDialog"
             android:theme="@android:style/Theme.Dialog" >
         </activity>
     </application>

@@ -58,14 +58,24 @@ public class AccountDao extends CommonDao {
 		cv.put(KEY_L_PHOTO, account.getlPhoto());
 		cv.put(KEY_H_PHOTO, account.gethPhoto());
 		cv.put(KEY_USER_ID, account.getUserId());
-		mDb.update(TABLE_NAME, cv, KEY_ID,
+		mDb.update(TABLE_NAME, cv, KEY_ID+"=?",
 				new String[] { String.valueOf(account.getId()) });
 	}
+	
+
 
 	public void insert(AccountPO account) {
+		ContentValues cv1 = new ContentValues();
+		cv1.put(KEY_TYPE, account.getType());
+		cv1.put(KEY_NAME, account.getName());
+		cv1.put(KEY_L_PHOTO, account.getlPhoto());
+		cv1.put(KEY_H_PHOTO, account.gethPhoto());
+		cv1.put(KEY_USER_ID, account.getUserId());
+		long accountId = mDb.insert(TABLE_NAME, KEY_USER_ID, cv1);
 		if (account.getConfig() != null) {
 			AccountConfigPO config = account.getConfig();
 			ContentValues cv = new ContentValues();
+			cv.put(KEY_CONFIG_ACCOUNT_ID, accountId);
 			cv.put(KEY_CONFIG_ACCESS_TOKEN, config.getAccessToken());
 			cv.put(KEY_CONFIG_CREATE_TIME, config.getCreateTime());
 			cv.put(KEY_CONFIG_EXPIRE_SECONDS, config.getExpireSeconds());
@@ -75,13 +85,6 @@ public class AccountDao extends CommonDao {
 			cv.put(KEY_CONFIG_SESSION_SECRET, config.getSessionKey());
 			mDb.insert(CONFIG_TABLE_NAME, null, cv);
 		}
-		ContentValues cv = new ContentValues();
-		cv.put(KEY_TYPE, account.getType());
-		cv.put(KEY_NAME, account.getName());
-		cv.put(KEY_L_PHOTO, account.getlPhoto());
-		cv.put(KEY_H_PHOTO, account.gethPhoto());
-		cv.put(KEY_USER_ID, account.getUserId());
-		mDb.insert(TABLE_NAME, KEY_USER_ID, cv);
 	}
 
 	public boolean isExist(AccountPO account) {
@@ -107,4 +110,11 @@ public class AccountDao extends CommonDao {
 		}
 	}
 
+	public Cursor findAll(){
+		Cursor mCursor;
+		mCursor = mDb.rawQuery("SELECT _ID as _id,H_PHOTO, NAME FROM ACCOUNT",
+				null);
+		return mCursor;
+	}
+	
 }

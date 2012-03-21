@@ -30,15 +30,20 @@
         style="@style/Background.Body"
         android:layout_weight="1" >
 
-        <ListView style="@style/ListView" android:layout_weight="1">
-        </ListView>
+        <GridView
+            android:id="@+id/account_body_grid"
+            style="@style/GridView.personDis"
+            android:layout_weight="1" />
 
-        <LinearLayout style="@style/Background.Body" android:layout_weight="7" android:gravity="center">
+        <LinearLayout
+            style="@style/Background.Body"
+            android:layout_weight="7"
+            android:gravity="center" >
 
             <Button
+                android:id="@+id/account_bottom_button_newAccount"
                 style="@style/Button.Black"
-                android:text="@string/account_bottom_button_addnewaccount" 
-                android:id="@+id/account_bottom_button_newAccount"/>
+                android:text="@string/account_bottom_button_addnewaccount" />
         </LinearLayout>
     </LinearLayout>
 
