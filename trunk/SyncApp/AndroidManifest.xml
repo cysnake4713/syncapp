@@ -25,15 +25,17 @@
         <activity android:name=".StartAct" >
         </activity>
         <activity android:name=".AccountAct" >
+        </activity>
+        <activity
+            android:name=".NewAccountDialog"
+            android:theme="@android:style/Theme.Dialog" >
+        </activity>
+        <activity android:name=".MainViewPager" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity
-            android:name=".NewAccountDialog"
-            android:theme="@android:style/Theme.Dialog" >
         </activity>
     </application>
 
