@@ -2,13 +2,11 @@ package com.cysnake.syncapp.adapter;
 
 import com.cysnake.syncapp.act.R;
 import com.cysnake.syncapp.dao.AccountDao;
-import com.cysnake.syncapp.dao.PersonDao;
 import com.cysnake.syncapp.tools.CommonUtils;
 
 import android.content.Context;
 import android.database.Cursor;
 import android.view.View;
-import android.widget.AnalogClock;
 import android.widget.ImageView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;

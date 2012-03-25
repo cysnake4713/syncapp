@@ -6,6 +6,7 @@ import com.cysnake.syncapp.act.R;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 public class BaseDao {
 
@@ -25,6 +26,7 @@ public class BaseDao {
 
 		@Override
 		public void onCreate(SQLiteDatabase db) {
+			Log.i(TAG, "call onCreate  ");
 
 		}
 

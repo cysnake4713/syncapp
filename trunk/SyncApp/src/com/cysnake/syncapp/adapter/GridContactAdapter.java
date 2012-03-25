@@ -7,7 +7,6 @@ import com.cysnake.syncapp.tools.CommonUtils;
 import android.content.Context;
 import android.database.Cursor;
 import android.view.View;
-import android.widget.AnalogClock;
 import android.widget.ImageView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;

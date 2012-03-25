@@ -3,10 +3,8 @@ package com.cysnake.syncapp.dao;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
-import android.graphics.Bitmap.CompressFormat;
 
 import com.cysnake.syncapp.po.PersonPO;
-import com.cysnake.syncapp.tools.CommonUtils;
 
 public class PersonDao extends CommonDao {
 
