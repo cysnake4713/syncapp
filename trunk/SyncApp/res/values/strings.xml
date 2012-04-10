@@ -15,6 +15,10 @@
     <string name="account_midbar_textview">当前帐户</string>
     <string name="account_bottom_button_addnewaccount">添加帐户</string>
     <string name="new_account_title">选择登陆方式</string>
+    <string name="account_gridview_longclick_freinds">查看好友</string>
+    <string name="account_gridview_longclick_detail">详细信息</string>
+    <string name="account_gridview_longclick_upgrade">更新</string>
+    <string name="account_gridview_longclick_delete">删除</string>
     
     <!-- renren -->
 	<string name="renren_api_key">1eb5244d49774dc8a669141de132b4d0</string>
