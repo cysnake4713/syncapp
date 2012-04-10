@@ -3,18 +3,19 @@ package com.cysnake.syncapp.dao;
 import android.content.Context;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 import com.cysnake.dbtools.BaseDao;
-import com.cysnake.dbtools.MySQLiteOpenHelper;
 
 public class CommonDao extends BaseDao {
 	private static final String TAG = "CommonDao";
-	private MySQLiteOpenHelper mDbHelper;
+	private SQLiteOpenHelper mDbHelper;
 	protected SQLiteDatabase mDb;
 	private final Context mCtx;
 
 	public CommonDao(Context ctx) {
+		super(ctx);
 		this.mCtx = ctx;
 	}
 
