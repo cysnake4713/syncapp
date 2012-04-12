@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item android:title="@string/account_gridview_longclick_freinds"/>
+    <item android:title="@string/account_gridview_longclick_detail"/>
+    <item android:title="@string/account_gridview_longclick_upgrade"/>
+    <item android:title="@string/account_gridview_longclick_delete"/>
+
+</menu>
