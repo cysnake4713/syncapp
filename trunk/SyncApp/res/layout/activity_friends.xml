@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Background"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        style="@style/Background.Oneline.TopBar"
+        android:layout_weight="7" >
+
+        <TextView
+            style="@style/TextView.Title"
+            android:text="@string/friends_title_textview" />
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/Background.Body"
+        android:layout_weight="1" >
+
+        <GridView
+            android:id="@+id/freinds_body_grid"
+            style="@style/GridView.personDis" />
+    </LinearLayout>
+
+</LinearLayout>

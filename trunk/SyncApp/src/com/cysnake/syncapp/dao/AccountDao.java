@@ -38,6 +38,38 @@ public class AccountDao extends CommonDao {
 		}
 	}
 
+	public AccountPO find(int id) {
+
+		Cursor cursor = mDb
+				.rawQuery(
+						"select * from ACCOUNT,ACCOUNT_CONFIG where ACCOUNT._ID=ACCOUNT_CONFIG.ACCOUNT_ID and ACCOUNT._ID=?",
+						new String[] { String.valueOf(id) });
+		AccountPO account = new AccountPO();
+		account.setId(cursor.getInt(cursor.getColumnIndex("ACCOUNT._ID")));
+		account.setType(cursor.getString(cursor.getColumnIndex(KEY_TYPE)));
+		account.setName(cursor.getString(cursor.getColumnIndex(KEY_NAME)));
+		account.setlPhoto(cursor.getBlob(cursor.getColumnIndex(KEY_L_PHOTO)));
+		account.sethPhoto(cursor.getBlob(cursor.getColumnIndex(KEY_H_PHOTO)));
+		account.setUserId(cursor.getLong(cursor.getColumnIndex(KEY_USER_ID)));
+		AccountConfigPO config = new AccountConfigPO();
+		config.setId(cursor.getInt(cursor
+				.getColumnIndex("ACCOUNT_CONFIG.ACCOUNT_ID")));
+		config.setAccessToken(cursor.getString(cursor
+				.getColumnIndex(KEY_CONFIG_ACCESS_TOKEN)));
+		config.setCreateTime(cursor.getLong(cursor
+				.getColumnIndex(KEY_CONFIG_CREATE_TIME)));
+		config.setSessionKey(cursor.getString(cursor
+				.getColumnIndex(KEY_CONFIG_SESSION_KEY)));
+		config.setExpireSeconds(cursor.getLong(cursor
+				.getColumnIndex(KEY_CONFIG_EXPIRE_SECONDS)));
+		config.setSessionCreateTime(cursor.getLong(cursor
+				.getColumnIndex(KEY_CONFIG_SESSION_CREATE_TIME)));
+		config.setSessionSecret(cursor.getString(cursor
+				.getColumnIndex(KEY_CONFIG_SESSION_SECRET)));
+		account.setConfig(config);
+		return account;
+	}
+
 	public void update(AccountPO account) {
 		if (account.getConfig() != null) {
 			AccountConfigPO config = account.getConfig();
@@ -58,11 +90,9 @@ public class AccountDao extends CommonDao {
 		cv.put(KEY_L_PHOTO, account.getlPhoto());
 		cv.put(KEY_H_PHOTO, account.gethPhoto());
 		cv.put(KEY_USER_ID, account.getUserId());
-		mDb.update(TABLE_NAME, cv, KEY_ID+"=?",
+		mDb.update(TABLE_NAME, cv, KEY_ID + "=?",
 				new String[] { String.valueOf(account.getId()) });
 	}
-	
-
 
 	public void insert(AccountPO account) {
 		ContentValues cv1 = new ContentValues();
@@ -72,6 +102,7 @@ public class AccountDao extends CommonDao {
 		cv1.put(KEY_H_PHOTO, account.gethPhoto());
 		cv1.put(KEY_USER_ID, account.getUserId());
 		long accountId = mDb.insert(TABLE_NAME, KEY_USER_ID, cv1);
+		account.setId((int) accountId);
 		if (account.getConfig() != null) {
 			AccountConfigPO config = account.getConfig();
 			ContentValues cv = new ContentValues();
@@ -83,7 +114,8 @@ public class AccountDao extends CommonDao {
 			cv.put(KEY_CONFIG_SESSION_CREATE_TIME,
 					config.getSessionCreateTime());
 			cv.put(KEY_CONFIG_SESSION_SECRET, config.getSessionKey());
-			mDb.insert(CONFIG_TABLE_NAME, null, cv);
+			long acId = mDb.insert(CONFIG_TABLE_NAME, null, cv);
+			config.setId((int) acId);
 		}
 	}
 
@@ -110,11 +142,11 @@ public class AccountDao extends CommonDao {
 		}
 	}
 
-	public Cursor findAll(){
+	public Cursor findAll() {
 		Cursor mCursor;
 		mCursor = mDb.rawQuery("SELECT _ID as _id,H_PHOTO, NAME FROM ACCOUNT",
 				null);
 		return mCursor;
 	}
-	
+
 }

@@ -19,6 +19,8 @@
     <string name="account_gridview_longclick_detail">详细信息</string>
     <string name="account_gridview_longclick_upgrade">更新</string>
     <string name="account_gridview_longclick_delete">删除</string>
+    <!-- friends -->
+    <string name="friends_title_textview">朋友</string>
     
     <!-- renren -->
 	<string name="renren_api_key">1eb5244d49774dc8a669141de132b4d0</string>

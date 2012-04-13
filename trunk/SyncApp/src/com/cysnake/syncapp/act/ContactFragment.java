@@ -12,6 +12,8 @@ import android.view.ViewGroup;
 import android.widget.GridView;
 
 public class ContactFragment extends Fragment {
+	PersonDao personDao;
+	Cursor mCurosr;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -19,9 +21,9 @@ public class ContactFragment extends Fragment {
 		View root = inflater.inflate(R.layout.fragment_contact, container,
 				false);
 		GridView grid = (GridView) root.findViewById(R.id.homepage_body_grid);
-		PersonDao personDao = new PersonDao(getActivity());
+		personDao = new PersonDao(getActivity());
 		personDao.open();
-		Cursor mCurosr = personDao.findAll();
+		mCurosr = personDao.findAll();
 		// personDao.close();
 		GridContactAdapter gridAdapter = new GridContactAdapter(getActivity(),
 				R.layout.grid_cell_contact, mCurosr, new String[] {
@@ -31,4 +33,12 @@ public class ContactFragment extends Fragment {
 		grid.setAdapter(gridAdapter);
 		return root;
 	}
+
+	@Override
+	public void onStop() {
+		mCurosr.close();
+		personDao.close();
+		super.onStop();
+	}
+
 }

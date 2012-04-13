@@ -12,5 +12,8 @@
         android:id="@+id/grid_cell_TextView_name"
         style="@style/TextView.Name"
         android:layout_toRightOf="@id/grid_cell_imageview_photo" />
+    <TextView android:id="@+id/grid_cell_textview_id"
+        style="@style/Background"
+        android:visibility="gone"/>
 
 </RelativeLayout>

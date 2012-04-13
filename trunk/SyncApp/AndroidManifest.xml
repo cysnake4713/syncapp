@@ -9,6 +9,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:name="com.cysnake.httpclient.resource.ContextUtils"
@@ -20,11 +21,7 @@
             android:name="com.renren.api.connect.android.AuthorizationHelper$BlockActivity"
             android:theme="@android:style/Theme.Dialog" >
         </activity>
-        <activity android:name=".ContactAct" >
-        </activity>
         <activity android:name=".StartAct" >
-        </activity>
-        <activity android:name=".AccountAct" >
         </activity>
         <activity
             android:name=".NewAccountDialog"
@@ -36,6 +33,8 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".FriendsAct" >
         </activity>
     </application>
 
