@@ -42,32 +42,35 @@ public class AccountDao extends CommonDao {
 
 		Cursor cursor = mDb
 				.rawQuery(
-						"select * from ACCOUNT,ACCOUNT_CONFIG where ACCOUNT._ID=ACCOUNT_CONFIG.ACCOUNT_ID and ACCOUNT._ID=?",
+						"select ACCOUNT._ID as aid, ACCOUNT_CONFIG._ID as cid,* from ACCOUNT,ACCOUNT_CONFIG where ACCOUNT._ID=ACCOUNT_CONFIG.ACCOUNT_ID and ACCOUNT._ID=?",
 						new String[] { String.valueOf(id) });
 		AccountPO account = new AccountPO();
-		account.setId(cursor.getInt(cursor.getColumnIndex("ACCOUNT._ID")));
-		account.setType(cursor.getString(cursor.getColumnIndex(KEY_TYPE)));
-		account.setName(cursor.getString(cursor.getColumnIndex(KEY_NAME)));
-		account.setlPhoto(cursor.getBlob(cursor.getColumnIndex(KEY_L_PHOTO)));
-		account.sethPhoto(cursor.getBlob(cursor.getColumnIndex(KEY_H_PHOTO)));
-		account.setUserId(cursor.getLong(cursor.getColumnIndex(KEY_USER_ID)));
-		AccountConfigPO config = new AccountConfigPO();
-		config.setId(cursor.getInt(cursor
-				.getColumnIndex("ACCOUNT_CONFIG.ACCOUNT_ID")));
-		config.setAccessToken(cursor.getString(cursor
-				.getColumnIndex(KEY_CONFIG_ACCESS_TOKEN)));
-		config.setCreateTime(cursor.getLong(cursor
-				.getColumnIndex(KEY_CONFIG_CREATE_TIME)));
-		config.setSessionKey(cursor.getString(cursor
-				.getColumnIndex(KEY_CONFIG_SESSION_KEY)));
-		config.setExpireSeconds(cursor.getLong(cursor
-				.getColumnIndex(KEY_CONFIG_EXPIRE_SECONDS)));
-		config.setSessionCreateTime(cursor.getLong(cursor
-				.getColumnIndex(KEY_CONFIG_SESSION_CREATE_TIME)));
-		config.setSessionSecret(cursor.getString(cursor
-				.getColumnIndex(KEY_CONFIG_SESSION_SECRET)));
-		account.setConfig(config);
-		return account;
+		if (cursor.moveToFirst()) {
+			account.setId(cursor.getInt(cursor.getColumnIndex("aid")));
+			account.setType(cursor.getString(cursor.getColumnIndex(KEY_TYPE)));
+			account.setName(cursor.getString(cursor.getColumnIndex(KEY_NAME)));
+			account.setlPhoto(cursor.getBlob(cursor.getColumnIndex(KEY_L_PHOTO)));
+			account.sethPhoto(cursor.getBlob(cursor.getColumnIndex(KEY_H_PHOTO)));
+			account.setUserId(cursor.getLong(cursor.getColumnIndex(KEY_USER_ID)));
+			AccountConfigPO config = new AccountConfigPO();
+			config.setId(cursor.getInt(cursor.getColumnIndex("cid")));
+			config.setAccessToken(cursor.getString(cursor
+					.getColumnIndex(KEY_CONFIG_ACCESS_TOKEN)));
+			config.setCreateTime(cursor.getLong(cursor
+					.getColumnIndex(KEY_CONFIG_CREATE_TIME)));
+			config.setSessionKey(cursor.getString(cursor
+					.getColumnIndex(KEY_CONFIG_SESSION_KEY)));
+			config.setExpireSeconds(cursor.getLong(cursor
+					.getColumnIndex(KEY_CONFIG_EXPIRE_SECONDS)));
+			config.setSessionCreateTime(cursor.getLong(cursor
+					.getColumnIndex(KEY_CONFIG_SESSION_CREATE_TIME)));
+			config.setSessionSecret(cursor.getString(cursor
+					.getColumnIndex(KEY_CONFIG_SESSION_SECRET)));
+			account.setConfig(config);
+			return account;
+		} else {
+			return null;
+		}
 	}
 
 	public void update(AccountPO account) {

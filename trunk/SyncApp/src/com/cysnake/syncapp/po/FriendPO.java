@@ -4,7 +4,7 @@ public class FriendPO {
 
 	private int id;
 	private int accountId;
-	private int friendId;
+	private long friendId;
 	private String name;
 	private int sex;
 	private byte[] lPhoto;
@@ -26,11 +26,11 @@ public class FriendPO {
 		this.accountId = accountId;
 	}
 
-	public int getFriendId() {
+	public long getFriendId() {
 		return friendId;
 	}
 
-	public void setFriendId(int friendId) {
+	public void setFriendId(long friendId) {
 		this.friendId = friendId;
 	}
 

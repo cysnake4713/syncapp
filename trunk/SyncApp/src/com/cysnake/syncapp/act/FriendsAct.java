@@ -15,29 +15,37 @@ public class FriendsAct extends Activity {
 	private static final String TAG = "FriendsAct";
 	GridView friendsGridView;
 	FriendsService friendsService;
+	FriendsDao friendsDao = new FriendsDao(this);
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_friends);
+		friendsDao = new FriendsDao(this);
 		Intent intent = getIntent();
 		String id = intent.getStringExtra("account_id");
 		friendsService = new FriendsService(this);
-		friendsService.getAllFriendsInfoFromNet(Integer.parseInt(id));
-		init();
+		// friendsService.getAllFriendsInfoFromNet(Integer.parseInt(id));
+		init(id);
 	}
 
-	private void init() {
+	private void init(String id) {
 		friendsGridView = (GridView) findViewById(R.id.freinds_body_grid);
-		FriendsDao friendsDao = new FriendsDao(this);
+
 		friendsDao.open();
-		Cursor mCursor = friendsDao.findAll();
+		Cursor mCursor = friendsDao.findAllByAccount(id);
 		GridFriendsAdapter gridAdapter = new GridFriendsAdapter(this,
 				R.layout.grid_cell_contact, mCursor, new String[] {
 						FriendsDao.KEY_L_PHOTO, FriendsDao.KEY_NAME },
 				new int[] { R.id.grid_cell_imageview_photo,
 						R.id.grid_cell_TextView_name });
 		friendsGridView.setAdapter(gridAdapter);
+	}
+
+	@Override
+	protected void onStop() {
+		friendsDao.close();
+		super.onStop();
 	}
 
 }

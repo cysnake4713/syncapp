@@ -28,6 +28,15 @@ public class FriendsDao extends CommonDao {
 		return mCursor;
 	}
 
+	public Cursor findAllByAccount(String id) {
+		Cursor mCursor;
+		mCursor = mDb
+				.rawQuery(
+						"SELECT _ID as _id ,NAME ,L_PHOTO FROM FRIENDS where ACCOUNT_ID=?",
+						new String[] { id });
+		return mCursor;
+	}
+
 	public long insert(FriendPO friend) {
 		ContentValues cv = new ContentValues();
 		cv.put(KEY_ACCOUNT_ID, friend.getAccountId());
@@ -40,11 +49,12 @@ public class FriendsDao extends CommonDao {
 
 	public boolean isExist(FriendPO friend) {
 		Cursor mCursor;
-		mCursor = mDb.query(true, TABLE_NAME, new String[] { KEY_ID },
-				KEY_FRIEND_ID + " = " + friend.getFriendId() + "", null, null,
-				null, null, null);
+		mCursor = mDb.rawQuery(
+				"select _ID from FRIENDS where ACCOUNT_ID=? and FRIEND_ID=?",
+				new String[] { String.valueOf(friend.getAccountId()),
+						String.valueOf(friend.getFriendId()) });
 		if (mCursor.getCount() > 0) {
-			mCursor.moveToNext();
+			mCursor.moveToFirst();
 			int id = mCursor.getInt(mCursor.getColumnIndex(KEY_ID));
 			friend.setId(id);
 			mCursor.close();
