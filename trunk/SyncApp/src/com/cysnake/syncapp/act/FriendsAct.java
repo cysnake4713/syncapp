@@ -8,7 +8,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.GridView;
 
 public class FriendsAct extends Activity {
@@ -16,6 +15,7 @@ public class FriendsAct extends Activity {
 	GridView friendsGridView;
 	FriendsService friendsService;
 	FriendsDao friendsDao = new FriendsDao(this);
+	Cursor mCursor;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +33,7 @@ public class FriendsAct extends Activity {
 		friendsGridView = (GridView) findViewById(R.id.freinds_body_grid);
 
 		friendsDao.open();
-		Cursor mCursor = friendsDao.findAllByAccount(id);
+		mCursor = friendsDao.findAllByAccount(id);
 		GridFriendsAdapter gridAdapter = new GridFriendsAdapter(this,
 				R.layout.grid_cell_contact, mCursor, new String[] {
 						FriendsDao.KEY_L_PHOTO, FriendsDao.KEY_NAME },
@@ -44,6 +44,7 @@ public class FriendsAct extends Activity {
 
 	@Override
 	protected void onStop() {
+		mCursor.close();
 		friendsDao.close();
 		super.onStop();
 	}
