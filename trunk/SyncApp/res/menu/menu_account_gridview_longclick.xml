@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
 
-    <item android:title="@string/account_gridview_longclick_freinds"/>
-    <item android:title="@string/account_gridview_longclick_detail"/>
-    <item android:title="@string/account_gridview_longclick_upgrade"/>
-    <item android:title="@string/account_gridview_longclick_delete"/>
+    <item
+        android:id="@+id/account_gridview_contextmenu_friends"
+        android:title="@string/account_gridview_longclick_freinds"/>
+    <item
+        android:id="@+id/account_gridview_contextmenu_detail"
+        android:title="@string/account_gridview_longclick_detail"/>
+    <item
+        android:id="@+id/account_gridview_contextmenu_upgrade"
+        android:title="@string/account_gridview_longclick_upgrade"/>
+    <item
+        android:id="@+id/account_gridview_contextmenu_delete"
+        android:title="@string/account_gridview_longclick_delete"/>
 
 </menu>
